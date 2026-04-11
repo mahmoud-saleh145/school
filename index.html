@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mansoura College - المنصورة كولدج</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: #222;
+        }
+
+        /* NAV */
+        nav {
+            background: #1a3a6b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        nav .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: #f0a500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a3a6b;
+        }
+
+        nav .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav ul a {
+            color: #ccd9f0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color .2s;
+        }
+
+        nav ul a:hover {
+            color: #f0a500;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            margin: 5px 0;
+            transition: .3s;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #1a3a6b 0%, #0d2247 60%, #1a3a6b 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 300px;
+            height: 300px;
+            background: rgba(240, 165, 0, 0.12);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -40px;
+            width: 220px;
+            height: 220px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #f0a500;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #a8c0e8;
+            max-width: 620px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #f0a500;
+            color: #1a3a6b;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background .2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #d4920a;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: border-color .2s, color .2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: #f0a500;
+            color: #f0a500;
+        }
+
+        /* TICKER */
+        .ticker {
+            background: #f0a500;
+            color: #1a3a6b;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .ticker-inner {
+            display: inline-block;
+            animation: ticker 28s linear infinite;
+        }
+
+        .ticker-inner span {
+            margin: 0 60px;
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(100vw);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* ABOUT */
+        .about-wrapper {
+            background: #fff;
+        }
+
+        .about {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-img {
+            min-width: 300px;
+            height: 280px;
+            background: linear-gradient(135deg, #1a3a6b, #2a5aab);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .about-img .big-icon {
+            font-size: 64px;
+        }
+
+        .about-img p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+        }
+
+        .about-content h2 {
+            font-size: 30px;
+            color: #1a3a6b;
+            margin-bottom: 16px;
+        }
+
+        .about-content h2 span {
+            color: #f0a500;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 12px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .num {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a3a6b;
+        }
+
+        .stat .lbl {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* SCHOOLS */
+        .schools-section {
+            background: #f4f7fc;
+            padding: 70px 40px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 44px;
+        }
+
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .school-card {
+            background: white;
+            border-radius: 10px;
+            padding: 32px 20px 24px;
+            text-align: center;
+            border: 1px solid #e0e8f5;
+            transition: transform .2s, box-shadow .2s;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            display: block;
+        }
+
+        .school-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 28px rgba(26, 58, 107, 0.12);
+        }
+
+        .school-badge {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 16px;
+        }
+
+        .school-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 6px;
+        }
+
+        .school-card p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* ACADEMY */
+        .academy-banner {
+            background: linear-gradient(90deg, #1a3a6b 0%, #2a5aab 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .academy-banner h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .academy-banner p {
+            color: #a8c0e8;
+            font-size: 15px;
+            margin-bottom: 28px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .academy-code {
+            display: inline-block;
+            background: #f0a500;
+            color: #1a3a6b;
+            font-size: 28px;
+            font-weight: 700;
+            padding: 14px 40px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* VALUES */
+        .values-section {
+            padding: 70px 40px;
+            background: white;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            padding: 28px 20px;
+            border-radius: 10px;
+            background: #f4f7fc;
+            border-left: 4px solid #1a3a6b;
+            text-align: left;
+        }
+
+        .value-card .icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .value-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 6px;
+        }
+
+        .value-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: #1a3a6b;
+            color: white;
+            padding: 70px 40px;
+        }
+
+        .contact-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-section h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(240, 165, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-item p {
+            font-size: 14px;
+            color: #a8c0e8;
+            line-height: 1.6;
+        }
+
+        .contact-item strong {
+            color: white;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 12px 14px;
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            resize: none;
+            width: 100%;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #7090b8;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #f0a500;
+        }
+
+        .contact-form button {
+            background: #f0a500;
+            color: #1a3a6b;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .contact-form button:hover {
+            background: #d4920a;
+        }
+
+        /* TOAST */
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a3a6b;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            border-left: 4px solid #f0a500;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .3s, transform .3s;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0d2247;
+            color: #7090b8;
+            text-align: center;
+            padding: 20px 40px;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #f0a500;
+        }
+
+        /* SCROLL TO TOP */
+        #scrollTop {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #f0a500;
+            color: #1a3a6b;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: background .2s;
+        }
+
+        #scrollTop:hover {
+            background: #d4920a;
+        }
+
+        #scrollTop.visible {
+            display: flex;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #1a3a6b;
+                padding: 20px 40px;
+                gap: 16px;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 50px 24px;
+            }
+
+            .about-img {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .schools-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            nav {
+                padding: 0 20px;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a class="logo" href="#">
+            <div class="logo-icon">MC</div>
+            <span class="logo-text">Mansoura College</span>
+        </a>
+        <ul id="navMenu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#schools">Schools</a></li>
+            <li><a href="#academy">Academy</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Welcome To <span>Mansoura College</span><br>Educational Campus</h1>
+        <p>One of Egypt's leading international schools, offering American, National, British and Modern Language
+            systems — where every student comes first.</p>
+        <div class="hero-btns">
+            <a class="btn-primary" href="#schools">Explore Schools</a>
+            <a class="btn-outline" href="#contact">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker">
+        <div class="ticker-inner">
+            <span>Quality Education... By Any Means Necessary</span>
+            <span>★</span>
+            <span>Providing Future Leaders</span>
+            <span>★</span>
+            <span>Where Student Comes First</span>
+            <span>★</span>
+            <span>Achieving Excellence Together</span>
+            <span>★</span>
+            <span>Treat Others As You Want To Be Treated</span>
+            <span>★</span>
+            <span>Motivated Achievers Perform, Learn, Excel</span>
+            <span>★</span>
+            <span>Where Love Is Shown Daily</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about-wrapper" id="about">
+        <div class="about">
+            <div class="about-img">
+                <div class="big-icon">🏫</div>
+                <p>Est. Mansoura, Egypt</p>
+            </div>
+            <div class="about-content">
+                <h2>About <span>Mansoura College</span></h2>
+                <p>Located in the heart of the delta area of Egypt on the Mansoura–Damietta highway, Mansoura College is
+                    one of the few international schools in Egypt that fully adheres to all international standards of
+                    education.</p>
+                <p>Students follow either the American system or the National system in high school. Our curriculum is
+                    strongly enriched by an exceptional character education program.</p>
+                <p>Our academically demanding environment is founded on the belief that every child is creative, unique,
+                    and capable of achieving outstanding results when given proper support and tools.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="num">5+</div>
+                        <div class="lbl">Schools</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">4</div>
+                        <div class="lbl">Curricula</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">1</div>
+                        <div class="lbl">Academy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">∞</div>
+                        <div class="lbl">Potential</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCHOOLS -->
+    <section class="schools-section" id="schools">
+        <h2 class="section-title">Our Schools</h2>
+        <p class="section-sub">Choose the right path for your child's future</p>
+        <div class="schools-grid">
+            <a class="school-card" href="http://mc2.mc.edu.eg" target="_blank">
+                <div class="school-badge" style="background:#1a3a6b;">MC</div>
+                <h3>Mansoura College</h3>
+                <p>Language School</p>
+            </a>
+            <a class="school-card" href="http://mmc.mc.edu.eg" target="_blank">
+                <div class="school-badge" style="background:#2a6aad;">MMC</div>
+                <h3>Modern MC</h3>
+                <p>Modern Language School</p>
+            </a>
+            <a class="school-card" href="http://ad.mc.edu.eg" target="_blank">
+                <div class="school-badge" style="background:#b8381e;">AD</div>
+                <h3>American Division</h3>
+                <p>American School System</p>
+            </a>
+            <a class="school-card" href="http://ig.mc.edu.eg" target="_blank">
+                <div class="school-badge" style="background:#2a7a4b;">IG</div>
+                <h3>IGCSE Division</h3>
+                <p>British School System</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ACADEMY -->
+    <section class="academy-banner" id="academy">
+        <h2>Mansoura College Academy</h2>
+        <p>Mansoura High Institute for Engineering and Technology — shaping tomorrow's engineers today.</p>
+        <div>
+            <div class="academy-code">MCA</div>
+        </div>
+        <a class="btn-outline" href="https://mca.edu.eg" target="_blank"
+            style="font-size:14px; padding:10px 28px; margin-top:8px;">Visit Academy Site</a>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values-section" id="values">
+        <h2 class="section-title">Our Values</h2>
+        <p class="section-sub">The principles that guide everything we do</p>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="icon">🎓</div>
+                <h4>Academic Excellence</h4>
+                <p>Rigorous international curriculum tailored for every learner.</p>
+            </div>
+            <div class="value-card">
+                <div class="icon">❤️</div>
+                <h4>Character Education</h4>
+                <p>Where love is shown daily and values are taught by example.</p>
+            </div>
+            <div class="value-card">
+                <div class="icon">🌍</div>
+                <h4>International Standards</h4>
+                <p>Full adherence to global education benchmarks and systems.</p>
+            </div>
+            <div class="value-card">
+                <div class="icon">🚀</div>
+                <h4>Student First</h4>
+                <p>Every decision is made with the student's best interest at heart.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="contact-inner">
+            <div>
+                <h2>Get in Touch</h2>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <p><strong>Address</strong>Educational Campus, Mansoura–Damietta Highway, Mansoura, Egypt</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <p><strong>Phone</strong>+20 50 258 8888<br>+20 50 258 8899</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <p><strong>Email</strong>info@mc.edu.eg</p>
+                </div>
+            </div>
+            <div>
+                <h2>Send a Message</h2>
+                <div class="contact-form">
+                    <input type="text" id="fname" placeholder="Your Name" />
+                    <input type="email" id="femail" placeholder="Your Email" />
+                    <input type="text" id="fsubject" placeholder="Subject" />
+                    <textarea rows="5" id="fmsg" placeholder="Your Message"></textarea>
+                    <button onclick="sendMsg()">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Copyright &copy; 2026 <span>Mansoura College</span>. All rights reserved. &nbsp;|&nbsp; info@mc.edu.eg
+            &nbsp;|&nbsp; +20 50 258 8888</p>
+    </footer>
+
+    <!-- SCROLL TOP -->
+    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- TOAST -->
+    <div id="toast">✅ Message sent! We'll get back to you soon.</div>
+
+    <script>
+        // Mobile menu
+        document.getElementById('navToggle').addEventListener('click', function () {
+            document.getElementById('navMenu').classList.toggle('open');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navMenu').classList.remove('open');
+                }
+            });
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', function () {
+            const btn = document.getElementById('scrollTop');
+            if (window.scrollY > 400) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+
+        // Contact form
+        function sendMsg() {
+            const name = document.getElementById('fname').value.trim();
+            const email = document.getElementById('femail').value.trim();
+            const subject = document.getElementById('fsubject').value.trim();
+            const msg = document.getElementById('fmsg').value.trim();
+            if (!name || !email || !subject || !msg) {
+                showToast('⚠️ Please fill in all fields.');
+                return;
+            }
+            showToast('✅ Message sent! We\'ll get back to you soon.');
+            document.getElementById('fname').value = '';
+            document.getElementById('femail').value = '';
+            document.getElementById('fsubject').value = '';
+            document.getElementById('fmsg').value = '';
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+
+        // Animate stats on scroll
+        const statNums = document.querySelectorAll('.stat .num');
+        const observed = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transition = 'opacity .6s';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        });
+        statNums.forEach(el => { el.style.opacity = '0'; observed.observe(el); });
+    </script>
+</body>
+
+</html>
