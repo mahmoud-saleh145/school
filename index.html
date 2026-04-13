@@ -35,6 +35,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         nav .logo-icon {
@@ -59,18 +60,24 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 28px;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         nav ul a {
             color: #ccd9f0;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             transition: color .2s;
+            padding: 4px 6px;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        nav ul a:hover {
+        nav ul a:hover,
+        nav ul a.active {
             color: #f0a500;
+            background: rgba(240, 165, 0, 0.1);
         }
 
         .nav-toggle {
@@ -86,7 +93,15 @@
             height: 2px;
             background: white;
             margin: 5px 0;
-            transition: .3s;
+        }
+
+        /* PAGES */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
         }
 
         /* HERO */
@@ -147,6 +162,32 @@
             flex-wrap: wrap;
         }
 
+        /* PAGE HERO (inner pages) */
+        .page-hero {
+            background: linear-gradient(135deg, #1a3a6b, #0d2247);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-hero h1 span {
+            color: #f0a500;
+        }
+
+        .page-hero p {
+            color: #a8c0e8;
+            font-size: 16px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* BUTTONS */
         .btn-primary {
             background: #f0a500;
             color: #1a3a6b;
@@ -183,6 +224,24 @@
             color: #f0a500;
         }
 
+        .btn-gold {
+            background: #f0a500;
+            color: #1a3a6b;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background .2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold:hover {
+            background: #d4920a;
+        }
+
         /* TICKER */
         .ticker {
             background: #f0a500;
@@ -205,15 +264,15 @@
 
         @keyframes ticker {
             from {
-                transform: translateX(100vw);
+                transform: translateX(100vw)
             }
 
             to {
-                transform: translateX(-100%);
+                transform: translateX(-100%)
             }
         }
 
-        /* ABOUT */
+        /* ABOUT HOME */
         .about-wrapper {
             background: #fff;
         }
@@ -322,10 +381,10 @@
             text-align: center;
             border: 1px solid #e0e8f5;
             transition: transform .2s, box-shadow .2s;
-            text-decoration: none;
-            color: inherit;
             cursor: pointer;
             display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .school-card:hover {
@@ -360,7 +419,7 @@
 
         /* ACADEMY */
         .academy-banner {
-            background: linear-gradient(90deg, #1a3a6b 0%, #2a5aab 100%);
+            background: linear-gradient(90deg, #1a3a6b, #2a5aab);
             color: white;
             padding: 60px 40px;
             text-align: center;
@@ -430,6 +489,443 @@
             font-size: 13px;
             color: #666;
             line-height: 1.6;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 70px 40px;
+            background: white;
+        }
+
+        .content-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content-inner h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 16px;
+        }
+
+        .content-inner h2 span {
+            color: #f0a500;
+        }
+
+        .content-inner p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .content-inner ul {
+            margin: 16px 0 24px 20px;
+        }
+
+        .content-inner ul li {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .content-inner ul li strong {
+            color: #1a3a6b;
+        }
+
+        .alt-section {
+            background: #f4f7fc;
+        }
+
+        /* CARDS GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 28px 24px;
+            border: 1px solid #e0e8f5;
+            border-top: 4px solid #f0a500;
+        }
+
+        .info-card .card-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* GALLERY GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #1a3a6b, #2a5aab);
+            border-radius: 10px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* STAGES */
+        .stages-timeline {
+            margin-top: 40px;
+        }
+
+        .stage-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+
+        .stage-num {
+            min-width: 56px;
+            height: 56px;
+            background: #1a3a6b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .stage-content {
+            background: white;
+            border: 1px solid #e0e8f5;
+            border-radius: 10px;
+            padding: 20px 24px;
+            flex: 1;
+            border-left: 4px solid #f0a500;
+        }
+
+        .stage-content h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 6px;
+        }
+
+        .stage-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .stage-content .stage-link {
+            color: #f0a500;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .stage-content .stage-link:hover {
+            text-decoration: underline;
+        }
+
+        /* QUIZ */
+        .quiz-container {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e0e8f5;
+            padding: 32px;
+            max-width: 600px;
+            margin: 32px auto 0;
+        }
+
+        .quiz-q {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3a6b;
+            margin-bottom: 20px;
+        }
+
+        .quiz-opts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-opt {
+            background: #f4f7fc;
+            border: 2px solid #e0e8f5;
+            border-radius: 8px;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 15px;
+            color: #333;
+            transition: all .2s;
+            text-align: left;
+        }
+
+        .quiz-opt:hover {
+            border-color: #1a3a6b;
+            background: #e6f0fb;
+        }
+
+        .quiz-opt.correct {
+            border-color: #22c55e;
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .quiz-opt.wrong {
+            border-color: #ef4444;
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .quiz-result {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e8f5;
+        }
+
+        .quiz-dot.done {
+            background: #f0a500;
+        }
+
+        .quiz-dot.current {
+            background: #1a3a6b;
+        }
+
+        .quiz-score {
+            text-align: center;
+            padding: 32px;
+            display: none;
+        }
+
+        .quiz-score .score-num {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a3a6b;
+        }
+
+        .quiz-score p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* NEWS */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e0e8f5;
+            overflow: hidden;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(26, 58, 107, 0.1);
+        }
+
+        .news-img {
+            height: 160px;
+            background: linear-gradient(135deg, #1a3a6b, #2a5aab);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .news-body {
+            padding: 20px;
+        }
+
+        .news-tag {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .news-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-body p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* ADMISSIONS */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 10px;
+            padding: 28px 20px;
+            border: 1px solid #e0e8f5;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            width: 44px;
+            height: 44px;
+            background: #f0a500;
+            color: #1a3a6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 auto 16px;
+        }
+
+        .step-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* TIPS */
+        .tips-accordion {
+            margin-top: 32px;
+        }
+
+        .tip-item {
+            border: 1px solid #e0e8f5;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .tip-header {
+            background: white;
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a3a6b;
+            font-size: 15px;
+        }
+
+        .tip-header:hover {
+            background: #f4f7fc;
+        }
+
+        .tip-arrow {
+            transition: transform .3s;
+            font-size: 12px;
+            color: #f0a500;
+        }
+
+        .tip-body {
+            background: #f9fbff;
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s, padding .3s;
+        }
+
+        .tip-body.open {
+            max-height: 300px;
+            padding: 16px 24px;
+        }
+
+        .tip-body ul {
+            margin-left: 16px;
+        }
+
+        .tip-body ul li {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 4px;
         }
 
         /* CONTACT */
@@ -530,6 +1026,18 @@
             background: #d4920a;
         }
 
+        .map-wrap {
+            margin-top: 24px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-wrap iframe {
+            display: block;
+            width: 100%;
+            border: 0;
+        }
+
         /* TOAST */
         #toast {
             position: fixed;
@@ -566,7 +1074,7 @@
             color: #f0a500;
         }
 
-        /* SCROLL TO TOP */
+        /* SCROLL TOP */
         #scrollTop {
             position: fixed;
             bottom: 30px;
@@ -594,8 +1102,53 @@
             display: flex;
         }
 
+        /* STUDENT LIFE */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .activity-card {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e0e8f5;
+            background: white;
+            transition: transform .2s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .activity-top {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+        }
+
+        .activity-body {
+            padding: 16px 20px;
+        }
+
+        .activity-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a3a6b;
+            margin-bottom: 6px;
+        }
+
+        .activity-body p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
         /* RESPONSIVE */
-        @media (max-width: 768px) {
+        @media(max-width:768px) {
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -643,6 +1196,10 @@
                 padding: 0 20px;
                 position: relative;
             }
+
+            .stage-item {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -651,187 +1208,867 @@
 
     <!-- NAV -->
     <nav>
-        <a class="logo" href="#">
+        <div class="logo" onclick="showPage('home')">
             <div class="logo-icon">MC</div>
             <span class="logo-text">Mansoura College</span>
-        </a>
+        </div>
         <ul id="navMenu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#schools">Schools</a></li>
-            <li><a href="#academy">Academy</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+            <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+            <li><a onclick="showPage('stages')" id="nav-stages">Stages</a></li>
+            <li><a onclick="showPage('prekg')" id="nav-prekg">Pre-KG & KG</a></li>
+            <li><a onclick="showPage('primary')" id="nav-primary">Primary</a></li>
+            <li><a onclick="showPage('prep')" id="nav-prep">Preparatory</a></li>
+            <li><a onclick="showPage('secondary')" id="nav-secondary">Secondary</a></li>
+            <li><a onclick="showPage('admissions')" id="nav-admissions">Admissions</a></li>
+            <li><a onclick="showPage('student-life')" id="nav-student-life">Student Life</a></li>
+            <li><a onclick="showPage('news')" id="nav-news">News & Events</a></li>
+            <li><a onclick="showPage('quizzes')" id="nav-quizzes">Quizzes</a></li>
+            <li><a onclick="showPage('tips')" id="nav-tips">Tips</a></li>
+            <li><a onclick="showPage('gallery')" id="nav-gallery">Gallery</a></li>
+            <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
         </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Welcome To <span>Mansoura College</span><br>Educational Campus</h1>
-        <p>One of Egypt's leading international schools, offering American, National, British and Modern Language
-            systems — where every student comes first.</p>
-        <div class="hero-btns">
-            <a class="btn-primary" href="#schools">Explore Schools</a>
-            <a class="btn-outline" href="#contact">Get in Touch</a>
-        </div>
-    </section>
+    <!-- ===== HOME ===== -->
+    <div class="page active" id="page-home">
+        <section class="hero">
+            <h1>Welcome To <span>Mansoura College</span><br>Educational Campus</h1>
+            <p>One of Egypt's leading international schools, offering American, National, British and Modern Language
+                systems — where every student comes first.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="showPage('schools-section')">Explore Schools</button>
+                <button class="btn-outline" onclick="showPage('contact')">Get in Touch</button>
+            </div>
+        </section>
 
-    <!-- TICKER -->
-    <div class="ticker">
-        <div class="ticker-inner">
-            <span>Quality Education... By Any Means Necessary</span>
-            <span>★</span>
-            <span>Providing Future Leaders</span>
-            <span>★</span>
-            <span>Where Student Comes First</span>
-            <span>★</span>
-            <span>Achieving Excellence Together</span>
-            <span>★</span>
-            <span>Treat Others As You Want To Be Treated</span>
-            <span>★</span>
-            <span>Motivated Achievers Perform, Learn, Excel</span>
-            <span>★</span>
-            <span>Where Love Is Shown Daily</span>
+        <div class="ticker">
+            <div class="ticker-inner">
+                <span>Quality Education... By Any Means Necessary</span><span>★</span>
+                <span>Providing Future Leaders</span><span>★</span>
+                <span>Where Student Comes First</span><span>★</span>
+                <span>Achieving Excellence Together</span><span>★</span>
+                <span>Treat Others As You Want To Be Treated</span><span>★</span>
+                <span>Motivated Achievers Perform, Learn, Excel</span><span>★</span>
+                <span>Where Love Is Shown Daily</span>
+            </div>
         </div>
+
+        <div class="about-wrapper">
+            <div class="about">
+                <div class="about-img">
+                    <div class="big-icon">🏫</div>
+                    <p>Est. Mansoura, Egypt</p>
+                </div>
+                <div class="about-content">
+                    <h2>About <span>Mansoura College</span></h2>
+                    <p>Located in the heart of the delta area of Egypt on the Mansoura–Damietta highway, Mansoura
+                        College is one of the few international schools in Egypt that fully adheres to all international
+                        standards of education.</p>
+                    <p>Students follow either the American system or the National system in high school. Our curriculum
+                        is strongly enriched by an exceptional character education program.</p>
+                    <p>Our academically demanding environment is founded on the belief that every child is creative,
+                        unique, and capable of achieving outstanding results when given proper support and tools.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="num">5+</div>
+                            <div class="lbl">Schools</div>
+                        </div>
+                        <div class="stat">
+                            <div class="num">4</div>
+                            <div class="lbl">Curricula</div>
+                        </div>
+                        <div class="stat">
+                            <div class="num">1</div>
+                            <div class="lbl">Academy</div>
+                        </div>
+                        <div class="stat">
+                            <div class="num">∞</div>
+                            <div class="lbl">Potential</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="schools-section" id="schools-section">
+            <h2 class="section-title">Our Schools</h2>
+            <p class="section-sub">Choose the right path for your child's future</p>
+            <div class="schools-grid">
+                <div class="school-card" onclick="showPage('about')">
+                    <div class="school-badge" style="background:#1a3a6b;">MC</div>
+                    <h3>Mansoura College</h3>
+                    <p>Language School</p>
+                </div>
+                <div class="school-card" onclick="showPage('about')">
+                    <div class="school-badge" style="background:#2a6aad;">MMC</div>
+                    <h3>Modern MC</h3>
+                    <p>Modern Language School</p>
+                </div>
+                <div class="school-card" onclick="showPage('about')">
+                    <div class="school-badge" style="background:#b8381e;">AD</div>
+                    <h3>American Division</h3>
+                    <p>American School System</p>
+                </div>
+                <div class="school-card" onclick="showPage('about')">
+                    <div class="school-badge" style="background:#2a7a4b;">IG</div>
+                    <h3>IGCSE Division</h3>
+                    <p>British School System</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="academy-banner">
+            <h2>Mansoura College Academy</h2>
+            <p>Mansoura High Institute for Engineering and Technology — shaping tomorrow's engineers today.</p>
+            <div>
+                <div class="academy-code">MCA</div>
+            </div>
+            <a class="btn-outline" href="https://mca.edu.eg" target="_blank"
+                style="font-size:14px;padding:10px 28px;margin-top:8px;">Visit Academy Site</a>
+        </section>
+
+        <section class="values-section">
+            <h2 class="section-title">Our Values</h2>
+            <p class="section-sub">The principles that guide everything we do</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon">🎓</div>
+                    <h4>Academic Excellence</h4>
+                    <p>Rigorous international curriculum tailored for every learner.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">❤️</div>
+                    <h4>Character Education</h4>
+                    <p>Where love is shown daily and values are taught by example.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🌍</div>
+                    <h4>International Standards</h4>
+                    <p>Full adherence to global education benchmarks and systems.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🚀</div>
+                    <h4>Student First</h4>
+                    <p>Every decision is made with the student's best interest at heart.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- ABOUT -->
-    <div class="about-wrapper" id="about">
-        <div class="about">
-            <div class="about-img">
-                <div class="big-icon">🏫</div>
-                <p>Est. Mansoura, Egypt</p>
-            </div>
-            <div class="about-content">
-                <h2>About <span>Mansoura College</span></h2>
-                <p>Located in the heart of the delta area of Egypt on the Mansoura–Damietta highway, Mansoura College is
-                    one of the few international schools in Egypt that fully adheres to all international standards of
-                    education.</p>
-                <p>Students follow either the American system or the National system in high school. Our curriculum is
-                    strongly enriched by an exceptional character education program.</p>
+    <!-- ===== ABOUT ===== -->
+    <div class="page" id="page-about">
+        <div class="page-hero">
+            <h1>About <span>Mansoura College</span></h1>
+            <p>Our mission, vision, and the story behind one of Egypt's finest institutions</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Our <span>Story</span></h2>
+                <p>Modern Mansoura College (MMC) provides holistic education from Pre-KG to Secondary 3, fostering
+                    academic excellence and personal growth in Mansoura, Egypt. Located on the Mansoura–Damietta
+                    highway, we are one of the few international schools in Egypt that fully adheres to all
+                    international standards of education.</p>
                 <p>Our academically demanding environment is founded on the belief that every child is creative, unique,
                     and capable of achieving outstanding results when given proper support and tools.</p>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="num">5+</div>
-                        <div class="lbl">Schools</div>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Mission</h3>
+                        <p>To nurture young minds for a brighter future through innovative, character-based education
+                            that prepares students for global citizenship.</p>
                     </div>
-                    <div class="stat">
-                        <div class="num">4</div>
-                        <div class="lbl">Curricula</div>
+                    <div class="info-card">
+                        <div class="card-icon">🌟</div>
+                        <h3>Vision</h3>
+                        <p>A leading institution inspiring lifelong learning and academic excellence, recognized across
+                            Egypt and internationally.</p>
                     </div>
-                    <div class="stat">
-                        <div class="num">1</div>
-                        <div class="lbl">Academy</div>
+                    <div class="info-card">
+                        <div class="card-icon">⚖️</div>
+                        <h3>Values</h3>
+                        <p>Integrity, innovation, and community. We treat others as we want to be treated — this is the
+                            foundation of everything we do.</p>
                     </div>
-                    <div class="stat">
-                        <div class="num">∞</div>
-                        <div class="lbl">Potential</div>
+                    <div class="info-card">
+                        <div class="card-icon">🏆</div>
+                        <h3>Achievement</h3>
+                        <p>100% university acceptance rate for Secondary graduates. Over 500 university graduates
+                            produced over the years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-section alt-section">
+            <div class="content-inner">
+                <h2>Why Choose <span>MMC?</span></h2>
+                <ul>
+                    <li><strong>Expert Faculty:</strong> Qualified teachers with years of experience across all subjects
+                        and grade levels.</li>
+                    <li><strong>Modern Facilities:</strong> Science labs, computer labs, sports fields, libraries, and
+                        interactive classrooms.</li>
+                    <li><strong>Holistic Curriculum:</strong> Academic subjects enriched with arts, sports, and
+                        character education.</li>
+                    <li><strong>Small Class Sizes:</strong> Personalized attention ensuring every student thrives.</li>
+                    <li><strong>University Counseling:</strong> Dedicated guidance for Secondary students applying to
+                        top universities.</li>
+                    <li><strong>Safe Environment:</strong> A nurturing, secure campus where students feel welcomed and
+                        valued.</li>
+                </ul>
+                <button class="btn-gold" onclick="showPage('admissions')">Apply Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== STAGES ===== -->
+    <div class="page" id="page-stages">
+        <div class="page-hero">
+            <h1>Educational <span>Stages</span></h1>
+            <p>A seamless journey from early childhood through university preparation</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Our <span>Academic Journey</span></h2>
+                <p>MMC's comprehensive program spans from Pre-KG to Secondary 3, ensuring seamless progression and
+                    tailored learning at every stage of a child's development.</p>
+                <div class="stages-timeline">
+                    <div class="stage-item">
+                        <div class="stage-num">1</div>
+                        <div class="stage-content">
+                            <h3>Pre-KG & Kindergarten (Ages 3–6)</h3>
+                            <p>Play-based foundation learning that nurtures curiosity, social skills, and early literacy
+                                and numeracy. Our safe, vibrant classrooms are designed for young explorers.</p>
+                            <a class="stage-link" onclick="showPage('prekg')">Learn more →</a>
+                        </div>
+                    </div>
+                    <div class="stage-item">
+                        <div class="stage-num">2</div>
+                        <div class="stage-content">
+                            <h3>Primary Grades 1–6 (Ages 6–12)</h3>
+                            <p>Core subjects including English, Arabic, Math, Science, and Social Studies with hands-on
+                                learning and extracurricular enrichment.</p>
+                            <a class="stage-link" onclick="showPage('primary')">Learn more →</a>
+                        </div>
+                    </div>
+                    <div class="stage-item">
+                        <div class="stage-num">3</div>
+                        <div class="stage-content">
+                            <h3>Preparatory Grades 7–9 (Ages 12–15)</h3>
+                            <p>Advanced subjects, clubs, debates, and leadership programs that prepare students for the
+                                rigors of secondary education.</p>
+                            <a class="stage-link" onclick="showPage('prep')">Learn more →</a>
+                        </div>
+                    </div>
+                    <div class="stage-item">
+                        <div class="stage-num">4</div>
+                        <div class="stage-content">
+                            <h3>Secondary Grades 10–12 (Ages 15–18)</h3>
+                            <p>University-ready excellence with STEM, humanities, electives, university counseling, and
+                                a 100% acceptance rate.</p>
+                            <a class="stage-link" onclick="showPage('secondary')">Learn more →</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SCHOOLS -->
-    <section class="schools-section" id="schools">
-        <h2 class="section-title">Our Schools</h2>
-        <p class="section-sub">Choose the right path for your child's future</p>
-        <div class="schools-grid">
-            <a class="school-card" href="http://mc2.mc.edu.eg" target="_blank">
-                <div class="school-badge" style="background:#1a3a6b;">MC</div>
-                <h3>Mansoura College</h3>
-                <p>Language School</p>
-            </a>
-            <a class="school-card" href="http://mmc.mc.edu.eg" target="_blank">
-                <div class="school-badge" style="background:#2a6aad;">MMC</div>
-                <h3>Modern MC</h3>
-                <p>Modern Language School</p>
-            </a>
-            <a class="school-card" href="http://ad.mc.edu.eg" target="_blank">
-                <div class="school-badge" style="background:#b8381e;">AD</div>
-                <h3>American Division</h3>
-                <p>American School System</p>
-            </a>
-            <a class="school-card" href="http://ig.mc.edu.eg" target="_blank">
-                <div class="school-badge" style="background:#2a7a4b;">IG</div>
-                <h3>IGCSE Division</h3>
-                <p>British School System</p>
-            </a>
+    <!-- ===== PRE-KG ===== -->
+    <div class="page" id="page-prekg">
+        <div class="page-hero">
+            <h1>Pre-KG & <span>Kindergarten</span></h1>
+            <p>Play-based learning for ages 3–6, building social skills and curiosity</p>
         </div>
-    </section>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Early Years <span>Program</span></h2>
+                <p>Our Pre-KG and KG program focuses on holistic early childhood development, preparing young learners
+                    for a lifetime of curiosity and achievement through age-appropriate, engaging activities.</p>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <div class="card-icon">📚</div>
+                        <h3>Curriculum</h3>
+                        <p>Basic literacy, numeracy, creative arts, and early science concepts through play and
+                            exploration.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🎨</div>
+                        <h3>Activities</h3>
+                        <p>Outdoor play, music, group games, storytelling, and hands-on art projects that spark
+                            creativity.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🏫</div>
+                        <h3>Facilities</h3>
+                        <p>Safe playgrounds, colorful interactive classrooms, and dedicated early learning spaces.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">👨‍👩‍👧</div>
+                        <h3>Social Growth</h3>
+                        <p>Structured group activities help children develop teamwork, empathy, and communication
+                            skills.</p>
+                    </div>
+                </div>
+                <br>
+                <button class="btn-gold" onclick="showPage('admissions')">Apply for Pre-KG</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- ACADEMY -->
-    <section class="academy-banner" id="academy">
-        <h2>Mansoura College Academy</h2>
-        <p>Mansoura High Institute for Engineering and Technology — shaping tomorrow's engineers today.</p>
-        <div>
-            <div class="academy-code">MCA</div>
+    <!-- ===== PRIMARY ===== -->
+    <div class="page" id="page-primary">
+        <div class="page-hero">
+            <h1>Primary <span>Grades 1–6</span></h1>
+            <p>Core subjects and hands-on exploration for ages 6–12</p>
         </div>
-        <a class="btn-outline" href="https://mca.edu.eg" target="_blank"
-            style="font-size:14px; padding:10px 28px; margin-top:8px;">Visit Academy Site</a>
-    </section>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Primary <span>Education</span></h2>
+                <p>Grades 1–6 emphasize core academic subjects alongside creative and physical development. Our teachers
+                    bring subjects to life through engaging, hands-on learning experiences.</p>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <div class="card-icon">➗</div>
+                        <h3>Subjects</h3>
+                        <p>English, Arabic, Mathematics, Science, Social Studies, Computer Science, and Arts.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🔬</div>
+                        <h3>Facilities</h3>
+                        <p>Science labs, libraries, computer rooms, and sports fields support diverse learning styles.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🏅</div>
+                        <h3>Success</h3>
+                        <p>Our primary students consistently excel in national assessments and inter-school
+                            competitions.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🤝</div>
+                        <h3>Support</h3>
+                        <p>Small class sizes ensure every student receives individualized attention and support from
+                            dedicated teachers.</p>
+                    </div>
+                </div>
+                <br>
+                <button class="btn-gold" onclick="showPage('admissions')">Enroll in Primary</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- VALUES -->
-    <section class="values-section" id="values">
-        <h2 class="section-title">Our Values</h2>
-        <p class="section-sub">The principles that guide everything we do</p>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="icon">🎓</div>
-                <h4>Academic Excellence</h4>
-                <p>Rigorous international curriculum tailored for every learner.</p>
-            </div>
-            <div class="value-card">
-                <div class="icon">❤️</div>
-                <h4>Character Education</h4>
-                <p>Where love is shown daily and values are taught by example.</p>
-            </div>
-            <div class="value-card">
-                <div class="icon">🌍</div>
-                <h4>International Standards</h4>
-                <p>Full adherence to global education benchmarks and systems.</p>
-            </div>
-            <div class="value-card">
-                <div class="icon">🚀</div>
-                <h4>Student First</h4>
-                <p>Every decision is made with the student's best interest at heart.</p>
+    <!-- ===== PREPARATORY ===== -->
+    <div class="page" id="page-prep">
+        <div class="page-hero">
+            <h1>Preparatory <span>Grades 7–9</span></h1>
+            <p>Advanced preparation for secondary education, ages 12–15</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Preparatory <span>Program</span></h2>
+                <p>Grades 7–9 build on primary foundations with more advanced academics, leadership opportunities, and
+                    extracurricular programs that develop well-rounded young individuals.</p>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <div class="card-icon">📐</div>
+                        <h3>Subjects</h3>
+                        <p>Advanced Mathematics, Sciences, Languages, History, Geography, and Introduction to
+                            Technology.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🎤</div>
+                        <h3>Activities</h3>
+                        <p>Clubs, debates, Model UN, student council, and leadership development programs.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">💻</div>
+                        <h3>Facilities</h3>
+                        <p>Computer labs, robotics workshop, study halls, and modern science laboratories.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">📈</div>
+                        <h3>Outcomes</h3>
+                        <p>Students graduate fully prepared for the academic demands of secondary education and beyond.
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <button class="btn-gold" onclick="showPage('admissions')">Apply for Preparatory</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-        <div class="contact-inner">
-            <div>
-                <h2>Get in Touch</h2>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <p><strong>Address</strong>Educational Campus, Mansoura–Damietta Highway, Mansoura, Egypt</p>
+    <!-- ===== SECONDARY ===== -->
+    <div class="page" id="page-secondary">
+        <div class="page-hero">
+            <h1>Secondary <span>Grades 10–12</span></h1>
+            <p>University-ready excellence with 100% acceptance rate</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Secondary <span>Program</span></h2>
+                <p>Grades 10–12 offer rigorous university preparation with STEM and humanities tracks, career guidance,
+                    internships, and dedicated university counseling — all leading to our outstanding 100% university
+                    acceptance rate.</p>
+                <div class="cards-grid">
+                    <div class="info-card">
+                        <div class="card-icon">🧮</div>
+                        <h3>Subjects</h3>
+                        <p>Calculus, Physics, Chemistry, Biology, Literature, Economics, and a range of electives.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🎓</div>
+                        <h3>University Counseling</h3>
+                        <p>Personal guidance on university applications, scholarships, and career pathways from
+                            experienced advisors.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">💼</div>
+                        <h3>Internships</h3>
+                        <p>Real-world experience through partnerships with leading Egyptian and international
+                            organizations.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">🏆</div>
+                        <h3>Achievements</h3>
+                        <p>100% university acceptance rate. Graduates in top universities across Egypt, USA, UK, and
+                            Canada.</p>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <p><strong>Phone</strong>+20 50 258 8888<br>+20 50 258 8899</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <p><strong>Email</strong>info@mc.edu.eg</p>
-                </div>
+                <br>
+                <button class="btn-gold" onclick="showPage('admissions')">Enroll in Secondary</button>
             </div>
-            <div>
-                <h2>Send a Message</h2>
-                <div class="contact-form">
-                    <input type="text" id="fname" placeholder="Your Name" />
-                    <input type="email" id="femail" placeholder="Your Email" />
-                    <input type="text" id="fsubject" placeholder="Subject" />
-                    <textarea rows="5" id="fmsg" placeholder="Your Message"></textarea>
-                    <button onclick="sendMsg()">Send Message</button>
+        </div>
+    </div>
+
+    <!-- ===== ADMISSIONS ===== -->
+    <div class="page" id="page-admissions">
+        <div class="page-hero">
+            <h1>Join the <span>MMC Family</span></h1>
+            <p>Applications are open for all stages — start your journey today</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>How to <span>Apply</span></h2>
+                <p>Our admissions process is simple and straightforward. We welcome families who share our commitment to
+                    excellence and holistic education.</p>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h3>Inquire</h3>
+                        <p>Contact us via phone, email, or visit our campus to learn about available spots.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h3>Apply</h3>
+                        <p>Submit the application form along with required documents listed below.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h3>Assessment</h3>
+                        <p>Students may attend a brief, friendly assessment appropriate to their grade level.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">4</div>
+                        <h3>Enroll</h3>
+                        <p>Receive your offer letter, complete enrollment formalities, and welcome to MMC!</p>
+                    </div>
+                </div>
+                <br>
+                <h2>Required <span>Documents</span></h2>
+                <ul>
+                    <li><strong>Birth Certificate:</strong> Official copy for the applying student.</li>
+                    <li><strong>Academic Transcripts:</strong> Previous school reports for the last 2 years.</li>
+                    <li><strong>Personal Interview:</strong> A short conversation with our admissions team.</li>
+                    <li><strong>Passport-sized Photos:</strong> 4 recent photos of the student.</li>
+                    <li><strong>Parent ID:</strong> A copy of parent or guardian national ID or passport.</li>
+                </ul>
+                <h2>Tuition & <span>Scholarships</span></h2>
+                <p>We offer affordable, competitive tuition fees with merit-based and need-based scholarships available.
+                    Contact our admissions office for a detailed fee structure tailored to your chosen stage and
+                    curriculum.</p>
+                <button class="btn-gold" onclick="showPage('contact')">Contact Admissions</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== STUDENT LIFE ===== -->
+    <div class="page" id="page-student-life">
+        <div class="page-hero">
+            <h1>Student <span>Life</span></h1>
+            <p>A vibrant community of clubs, sports, arts, and memorable events</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Life Beyond <span>the Classroom</span></h2>
+                <p>At MMC, education extends far beyond textbooks. Our rich student life program nurtures talents,
+                    builds friendships, and develops the character of every student.</p>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-top" style="background:#e6f0fb;">⚽</div>
+                        <div class="activity-body">
+                            <h3>Sports</h3>
+                            <p>Soccer, basketball, swimming, and athletics. Our teams compete in regional school
+                                leagues.</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-top" style="background:#fef9ec;">🎨</div>
+                        <div class="activity-body">
+                            <h3>Arts Club</h3>
+                            <p>Painting, sculpture, drama, and music. Annual talent shows showcase student creativity.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-top" style="background:#ecfdf5;">🔬</div>
+                        <div class="activity-body">
+                            <h3>Science Club</h3>
+                            <p>Robotics, coding, experiments, and annual Science Fair competitions.</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-top" style="background:#fdf2f8;">🎤</div>
+                        <div class="activity-body">
+                            <h3>Debate Club</h3>
+                            <p>Public speaking, critical thinking, and Model UN participation for Prep and Secondary.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-top" style="background:#f0fdf4;">📸</div>
+                        <div class="activity-body">
+                            <h3>Photography</h3>
+                            <p>Documenting school life, competitions, and building creative visual storytelling skills.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-top" style="background:#eff6ff;">🤖</div>
+                        <div class="activity-body">
+                            <h3>Robotics Lab</h3>
+                            <p>Hands-on engineering projects and participation in national robotics competitions.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="content-section alt-section">
+            <div class="content-inner">
+                <h2>Annual <span>Events</span></h2>
+                <ul>
+                    <li><strong>Science Fair:</strong> Students present original research and engineering projects to
+                        judges and parents.</li>
+                    <li><strong>Talent Show:</strong> A showcase of music, dance, drama, and spoken word performances.
+                    </li>
+                    <li><strong>Sports Day:</strong> A full day of athletic competitions fostering school spirit and
+                        teamwork.</li>
+                    <li><strong>Graduation Ceremony:</strong> A celebration of Secondary graduates as they begin their
+                        university journey.</li>
+                    <li><strong>Open House:</strong> Parents and prospective families explore campus and meet our
+                        faculty.</li>
+                    <li><strong>Cultural Day:</strong> Celebrating Egyptian and global cultures through food, dress, and
+                        performance.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NEWS ===== -->
+    <div class="page" id="page-news">
+        <div class="page-hero">
+            <h1>News & <span>Events</span></h1>
+            <p>Stay updated on the latest happenings at Mansoura College</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Latest <span>News</span></h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-img">🏆</div>
+                        <div class="news-body">
+                            <span class="news-tag">Achievement</span>
+                            <h3>Science Fair 2026 — Winners Announced</h3>
+                            <p>Our students swept the regional Science Fair, with the Robotics team taking first place
+                                in the engineering category.</p>
+                            <div class="news-date">March 2026</div>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-img">🎓</div>
+                        <div class="news-body">
+                            <span class="news-tag">Event</span>
+                            <h3>Open House — Visit Our Campus</h3>
+                            <p>Join us for our upcoming Open House event. Meet faculty, tour facilities, and learn about
+                                our programs firsthand.</p>
+                            <div class="news-date">Upcoming — April 2026</div>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-img">🤖</div>
+                        <div class="news-body">
+                            <span class="news-tag">Innovation</span>
+                            <h3>New Robotics Lab Officially Opens</h3>
+                            <p>MMC inaugurated its state-of-the-art Robotics and STEM Lab, equipped with the latest
+                                tools for young engineers.</p>
+                            <div class="news-date">February 2026</div>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-img">⚽</div>
+                        <div class="news-body">
+                            <span class="news-tag">Sports</span>
+                            <h3>MMC Football Team Wins Regional Championship</h3>
+                            <p>Our Secondary football team claimed the regional school championship for the second
+                                consecutive year.</p>
+                            <div class="news-date">January 2026</div>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-img">🎨</div>
+                        <div class="news-body">
+                            <span class="news-tag">Arts</span>
+                            <h3>Annual Talent Show Returns This Spring</h3>
+                            <p>Students from all grades are preparing acts for our beloved annual Talent Show. Auditions
+                                are now open!</p>
+                            <div class="news-date">Upcoming — May 2026</div>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-img">📚</div>
+                        <div class="news-body">
+                            <span class="news-tag">Academic</span>
+                            <h3>100% University Acceptance — Class of 2025</h3>
+                            <p>We are proud to announce that every Secondary 3 graduate of the Class of 2025 secured a
+                                university placement.</p>
+                            <div class="news-date">December 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== QUIZZES ===== -->
+    <div class="page" id="page-quizzes">
+        <div class="page-hero">
+            <h1>Educational <span>Quizzes</span></h1>
+            <p>Test your knowledge with fun, interactive quizzes for all grades</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Try a <span>Quiz</span></h2>
+                <p>Select a subject below and challenge yourself!</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+                    <button class="btn-gold" onclick="loadQuiz('math')" id="qbtn-math">Math</button>
+                    <button class="btn-gold" style="background:#1a3a6b;color:white;" onclick="loadQuiz('science')"
+                        id="qbtn-science">Science</button>
+                    <button class="btn-gold" style="background:#1a3a6b;color:white;" onclick="loadQuiz('english')"
+                        id="qbtn-english">English</button>
+                    <button class="btn-gold" style="background:#1a3a6b;color:white;" onclick="loadQuiz('history')"
+                        id="qbtn-history">History</button>
+                </div>
+                <div class="quiz-container">
+                    <div id="quiz-area">
+                        <div class="quiz-progress" id="quiz-progress"></div>
+                        <div class="quiz-q" id="quiz-question">Loading...</div>
+                        <div class="quiz-opts" id="quiz-options"></div>
+                        <div class="quiz-result" id="quiz-result"></div>
+                    </div>
+                    <div class="quiz-score" id="quiz-score">
+                        <div class="score-num" id="score-val">0/0</div>
+                        <p id="score-msg">Great effort!</p>
+                        <br>
+                        <button class="btn-gold" onclick="restartQuiz()">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TIPS ===== -->
+    <div class="page" id="page-tips">
+        <div class="page-hero">
+            <h1>Tips & <span>Resources</span></h1>
+            <p>Helpful guidance for students, parents, and families</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Study Tips for <span>Students</span></h2>
+                <div class="tips-accordion">
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">📅 Build a Daily Study Routine <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Set a fixed time each day dedicated to studying.</li>
+                                <li>Break study sessions into 25-minute blocks with 5-minute breaks (Pomodoro method).
+                                </li>
+                                <li>Review notes from that day's lessons before starting homework.</li>
+                                <li>End each session by previewing what you'll study tomorrow.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">🃏 Use Active Recall & Flashcards <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Write key concepts on one side of a card and answers on the other.</li>
+                                <li>Test yourself instead of just rereading notes.</li>
+                                <li>Use apps like Anki or Quizlet for digital flashcards.</li>
+                                <li>Space your reviews — revisit cards after 1 day, 3 days, then a week.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">✏️ Effective Note-Taking <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Use the Cornell method: main notes, cue column, and summary section.</li>
+                                <li>Highlight key terms but don't highlight everything.</li>
+                                <li>Rewrite notes in your own words after class.</li>
+                                <li>Draw diagrams and mind maps for complex topics.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">😴 Rest, Exercise & Nutrition <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Sleep at least 8 hours — memory consolidation happens during sleep.</li>
+                                <li>Exercise for 30 minutes daily to boost focus and reduce stress.</li>
+                                <li>Eat a balanced breakfast before school and exams.</li>
+                                <li>Stay hydrated — dehydration significantly reduces concentration.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <h2>Tips for <span>Parents</span></h2>
+                <div class="tips-accordion">
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">📖 Encourage Reading at Home <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Set aside 20 minutes of reading time each evening.</li>
+                                <li>Let children choose books on topics they enjoy.</li>
+                                <li>Read together for younger children and discuss the story.</li>
+                                <li>Visit the public library regularly to keep reading fresh and exciting.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">🏫 Stay Engaged with School Life <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Attend parent-teacher meetings and Open House events.</li>
+                                <li>Ask your child about their school day — listen actively.</li>
+                                <li>Volunteer for school events when possible.</li>
+                                <li>Review homework with your child without doing it for them.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-header" onclick="toggleTip(this)">🧘 Support Emotional Wellbeing <span
+                                class="tip-arrow">▼</span></div>
+                        <div class="tip-body">
+                            <ul>
+                                <li>Create a calm, positive home environment for study.</li>
+                                <li>Celebrate effort, not just results.</li>
+                                <li>Talk openly about stress, friendships, and challenges.</li>
+                                <li>Limit screen time and prioritize family meals together.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== GALLERY ===== -->
+    <div class="page" id="page-gallery">
+        <div class="page-hero">
+            <h1>MMC <span>Gallery</span></h1>
+            <p>A glimpse into campus life, events, and achievements</p>
+        </div>
+        <div class="content-section">
+            <div class="content-inner">
+                <h2>Campus <span>Highlights</span></h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#1a3a6b,#2a5aab);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🤖</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#0d5e2b,#1a9a4a);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🔬</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#7c1a1a,#c0392b);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">⚽</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#7c5a1a,#d4920a);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🎨</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#1a4a6b,#0d7ab4);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🎓</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#2a1a6b,#7a2aab);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">📚</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#1a6b3a,#2aab5a);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🏅</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#6b1a3a,#ab2a5a);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🎤</span></div>
+                    <div class="gallery-item" style="background:linear-gradient(135deg,#1a3a6b,#2a6aad);"
+                        onclick="openLightboxLocal(this)"><span style="font-size:44px;">🏫</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CONTACT ===== -->
+    <div class="page" id="page-contact">
+        <div class="page-hero">
+            <h1>Get in <span>Touch</span></h1>
+            <p>We'd love to hear from you — reach out for inquiries, visits, or admissions</p>
+        </div>
+        <section class="contact-section" style="padding-top:60px;">
+            <div class="contact-inner">
+                <div>
+                    <h2>Contact Info</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <p><strong>Address</strong>Educational Campus, Mansoura–Damietta Highway, Mansoura, Egypt</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <p><strong>Phone</strong>011123197546<br>+20 50 258 8888</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <p><strong>Email</strong>info@mc.edu.eg</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <p><strong>Office Hours</strong>Sunday – Thursday: 8:00 AM – 3:00 PM</p>
+                    </div>
+                    <div class="map-wrap" style="margin-top:24px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27341.098645496317!2d31.32295217431641!3d31.064194299999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79de461985001%3A0xbd9255b0a76ed97c!2sMansoura%20College%20Schools!5e0!3m2!1sen!2seg!4v1767000325781!5m2!1sen!2seg"
+                            height="220" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div>
+                    <h2>Send a Message</h2>
+                    <div class="contact-form">
+                        <input type="text" id="fname" placeholder="Your Name" />
+                        <input type="email" id="femail" placeholder="Your Email" />
+                        <input type="text" id="fsubject" placeholder="Subject" />
+                        <textarea rows="5" id="fmsg" placeholder="Your Message"></textarea>
+                        <button onclick="sendMsg()">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -846,62 +2083,152 @@
     <div id="toast">✅ Message sent! We'll get back to you soon.</div>
 
     <script>
-        // Mobile menu
+        // PAGE NAVIGATION
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('nav ul a').forEach(a => a.classList.remove('active'));
+            const pg = document.getElementById('page-' + id);
+            if (pg) { pg.classList.add('active'); }
+            const na = document.getElementById('nav-' + id);
+            if (na) { na.classList.add('active'); }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('navMenu').classList.remove('open');
+        }
+
+        // MOBILE MENU
         document.getElementById('navToggle').addEventListener('click', function () {
             document.getElementById('navMenu').classList.toggle('open');
         });
 
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    document.getElementById('navMenu').classList.remove('open');
-                }
-            });
-        });
-
-        // Scroll to top button
+        // SCROLL TOP
         window.addEventListener('scroll', function () {
             const btn = document.getElementById('scrollTop');
             if (window.scrollY > 400) btn.classList.add('visible');
             else btn.classList.remove('visible');
         });
 
-        // Contact form
+        // CONTACT FORM
         function sendMsg() {
             const name = document.getElementById('fname').value.trim();
             const email = document.getElementById('femail').value.trim();
             const subject = document.getElementById('fsubject').value.trim();
             const msg = document.getElementById('fmsg').value.trim();
-            if (!name || !email || !subject || !msg) {
-                showToast('⚠️ Please fill in all fields.');
-                return;
-            }
+            if (!name || !email || !subject || !msg) { showToast('⚠️ Please fill in all fields.'); return; }
             showToast('✅ Message sent! We\'ll get back to you soon.');
-            document.getElementById('fname').value = '';
-            document.getElementById('femail').value = '';
-            document.getElementById('fsubject').value = '';
-            document.getElementById('fmsg').value = '';
+            ['fname', 'femail', 'fsubject', 'fmsg'].forEach(id => document.getElementById(id).value = '');
         }
-
         function showToast(msg) {
             const t = document.getElementById('toast');
-            t.textContent = msg;
-            t.classList.add('show');
+            t.textContent = msg; t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 3500);
         }
 
-        // Animate stats on scroll
+        // TIPS ACCORDION
+        function toggleTip(header) {
+            const body = header.nextElementSibling;
+            const arrow = header.querySelector('.tip-arrow');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.tip-body').forEach(b => { b.classList.remove('open'); b.previousElementSibling.querySelector('.tip-arrow').style.transform = ''; });
+            if (!isOpen) { body.classList.add('open'); arrow.style.transform = 'rotate(180deg)'; }
+        }
+
+        // GALLERY
+        function openLightboxLocal(el) { /* placeholder — can expand later */ }
+
+        // QUIZ ENGINE
+        const quizzes = {
+            math: [
+                { q: 'What is 12 × 12?', opts: ['144', '124', '132', '148'], ans: 0 },
+                { q: 'Solve: 3x + 6 = 21', opts: ['x = 3', 'x = 5', 'x = 7', 'x = 9'], ans: 1 },
+                { q: 'What is 25% of 200?', opts: ['40', '50', '55', '60'], ans: 1 },
+                { q: 'What is √144?', opts: ['11', '12', '13', '14'], ans: 1 },
+                { q: 'If a triangle has sides 3, 4, and 5, what is its area?', opts: ['6', '7.5', '10', '12'], ans: 0 },
+            ],
+            science: [
+                { q: 'What planet is closest to the Sun?', opts: ['Venus', 'Mars', 'Mercury', 'Earth'], ans: 2 },
+                { q: 'What gas do plants absorb during photosynthesis?', opts: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Hydrogen'], ans: 2 },
+                { q: 'What is the chemical symbol for water?', opts: ['WO', 'H2O', 'HO2', 'W2H'], ans: 1 },
+                { q: 'How many bones are in the adult human body?', opts: ['186', '196', '206', '216'], ans: 2 },
+                { q: 'What force keeps planets in orbit around the Sun?', opts: ['Magnetism', 'Friction', 'Gravity', 'Nuclear Force'], ans: 2 },
+            ],
+            english: [
+                { q: 'Which word is a synonym for "happy"?', opts: ['Sad', 'Joyful', 'Tired', 'Angry'], ans: 1 },
+                { q: 'What is the past tense of "run"?', opts: ['Runned', 'Running', 'Ran', 'Runs'], ans: 2 },
+                { q: 'Identify the noun: "The cat sat on the mat."', opts: ['sat', 'on', 'cat', 'the'], ans: 2 },
+                { q: 'Which sentence uses correct punctuation?', opts: ["Its a nice day.", "It's a nice day.", "Its' a nice day.", "It is, a nice day."], ans: 1 },
+                { q: 'What is a metaphor?', opts: ['A direct comparison using like or as', 'An indirect comparison without like or as', 'A type of rhyme', 'A question asked for effect'], ans: 1 },
+            ],
+            history: [
+                { q: 'In what year did Egypt sign the Camp David Accords?', opts: ['1975', '1978', '1980', '1982'], ans: 1 },
+                { q: 'Who built the Great Pyramid of Giza?', opts: ['Ramesses II', 'Tutankhamun', 'Khufu', 'Cleopatra'], ans: 2 },
+                { q: 'What ancient river civilization developed in Egypt?', opts: ['Mesopotamian', 'Indus Valley', 'Nile Valley', 'Yellow River'], ans: 2 },
+                { q: 'In which century did the Islamic conquest of Egypt occur?', opts: ['5th century', '7th century', '9th century', '11th century'], ans: 1 },
+                { q: 'Who was Egypt\'s first president after the 1952 revolution?', opts: ['Anwar Sadat', 'Hosni Mubarak', 'Mohamed Naguib', 'Gamal Abdel Nasser'], ans: 2 },
+            ]
+        };
+
+        let currentQuiz = [], currentQ = 0, score = 0, answered = false, activeSubject = 'math';
+
+        function loadQuiz(subject) {
+            activeSubject = subject;
+            document.querySelectorAll('[id^="qbtn-"]').forEach(b => { b.style.background = '#1a3a6b'; b.style.color = 'white'; });
+            document.getElementById('qbtn-' + subject).style.background = '#f0a500';
+            document.getElementById('qbtn-' + subject).style.color = '#1a3a6b';
+            currentQuiz = quizzes[subject]; currentQ = 0; score = 0; answered = false;
+            document.getElementById('quiz-area').style.display = 'block';
+            document.getElementById('quiz-score').style.display = 'none';
+            renderQ();
+        }
+
+        function renderQ() {
+            const q = currentQuiz[currentQ];
+            const progress = document.getElementById('quiz-progress');
+            progress.innerHTML = currentQuiz.map((_, i) => `<div class="quiz-dot ${i < currentQ ? 'done' : i === currentQ ? 'current' : ''}"></div>`).join('');
+            document.getElementById('quiz-question').textContent = (currentQ + 1) + '. ' + q.q;
+            document.getElementById('quiz-options').innerHTML = q.opts.map((o, i) => `<button class="quiz-opt" onclick="selectOpt(this,${i},${q.ans})">${o}</button>`).join('');
+            const res = document.getElementById('quiz-result');
+            res.style.display = 'none'; res.textContent = '';
+            answered = false;
+        }
+
+        function selectOpt(btn, selected, correct) {
+            if (answered) return;
+            answered = true;
+            const opts = document.querySelectorAll('.quiz-opt');
+            opts[correct].classList.add('correct');
+            if (selected !== correct) { btn.classList.add('wrong'); }
+            else { score++; }
+            const res = document.getElementById('quiz-result');
+            res.style.display = 'block';
+            res.style.background = selected === correct ? '#dcfce7' : '#fee2e2';
+            res.style.color = selected === correct ? '#166534' : '#7f1d1d';
+            res.textContent = selected === correct ? '✅ Correct!' : '❌ The correct answer is: ' + currentQuiz[currentQ].opts[correct];
+            setTimeout(() => {
+                currentQ++;
+                if (currentQ < currentQuiz.length) { renderQ(); }
+                else { showScore(); }
+            }, 1600);
+        }
+
+        function showScore() {
+            document.getElementById('quiz-area').style.display = 'none';
+            const sc = document.getElementById('quiz-score');
+            sc.style.display = 'block';
+            document.getElementById('score-val').textContent = score + '/' + currentQuiz.length;
+            const pct = score / currentQuiz.length;
+            document.getElementById('score-msg').textContent = pct === 1 ? 'Perfect score! Outstanding! 🎉' : pct >= 0.8 ? 'Excellent work! 🌟' : pct >= 0.6 ? 'Good job! Keep practising. 👍' : 'Keep studying — you\'ll get there! 💪';
+        }
+
+        function restartQuiz() { loadQuiz(activeSubject); }
+
+        // Init default quiz
+        loadQuiz('math');
+
+        // Stat counter animation
         const statNums = document.querySelectorAll('.stat .num');
         const observed = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.transition = 'opacity .6s';
-                    entry.target.style.opacity = '1';
-                }
+                if (entry.isIntersecting) { entry.target.style.transition = 'opacity .6s'; entry.target.style.opacity = '1'; }
             });
         });
         statNums.forEach(el => { el.style.opacity = '0'; observed.observe(el); });
