@@ -1,0 +1,150 @@
+.admissions-hero-img {
+  width: 100%;
+  max-width: 680px;
+  aspect-ratio: 16/7;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  margin: 0 auto 52px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Steps */
+.admissions-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+}
+
+.admissions-step {
+  background: var(--white);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  padding: 30px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.admissions-step:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.admissions-step__num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.admissions-step h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.admissions-step p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Bottom two-col */
+.admissions-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Documents */
+.admissions-docs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admissions-docs__item {
+  display: flex;
+  gap: 11px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.65;
+  align-items: flex-start;
+}
+
+.admissions-docs__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.admissions-docs__item strong {
+  color: var(--navy);
+}
+
+/* Tuition */
+.admissions-tuition p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.admissions-tuition__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admissions-tuition__badge {
+  background: rgba(26, 58, 107, .08);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--blue-border);
+}
+
+@media (max-width: 740px) {
+  .admissions-bottom {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.single-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.single-image-wrapper img {
+  width: 75%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,119 @@
+.stages-timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+/* Vertical connector line */
+.stages-timeline::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 28px;
+  bottom: 28px;
+  width: 2px;
+  background: var(--blue-border);
+  z-index: 0;
+}
+
+.stages-timeline__item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.stages-timeline__num {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,58,107,.3);
+  border: 3px solid var(--white);
+}
+
+.stages-timeline__card {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--blue-border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.stages-timeline__card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.stages-timeline__card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stages-timeline__card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.stages-timeline__ages {
+  display: inline-block;
+  background: rgba(240,165,0,.12);
+  color: var(--gold-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.stages-timeline__card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.stages-timeline__link {
+  background: none;
+  border: none;
+  color: var(--gold-dark);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color var(--transition);
+}
+
+.stages-timeline__link:hover { color: var(--navy); }
+
+@media (max-width: 560px) {
+  .stages-timeline::before { display: none; }
+
+  .stages-timeline__item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stages-timeline__num {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+}

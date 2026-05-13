@@ -1,0 +1,99 @@
+.student-life-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 44px;
+}
+
+.student-life-photos__item {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Activity cards */
+.student-life-activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.student-life-activity {
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.student-life-activity:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.student-life-activity__top {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 46px;
+}
+
+.student-life-activity__body {
+  padding: 18px 20px;
+}
+
+.student-life-activity__body h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.student-life-activity__body p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Events list */
+.student-life-events {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.student-life-events__item {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+  align-items: flex-start;
+  padding: 16px 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--blue-border);
+  border-left: 4px solid var(--gold);
+  transition: transform var(--transition);
+}
+
+.student-life-events__item:hover { transform: translateX(4px); }
+
+.student-life-events__bullet {
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.student-life-events__item strong { color: var(--navy); }
+
+@media (max-width: 600px) {
+  .student-life-photos { grid-template-columns: 1fr; }
+}

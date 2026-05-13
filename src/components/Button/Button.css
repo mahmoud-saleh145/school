@@ -1,0 +1,48 @@
+/* Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition), border-color var(--transition), color var(--transition);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn:active { transform: scale(.97); }
+
+/* Sizes */
+.btn--md { font-size: 14px; padding: 12px 26px; }
+.btn--lg { font-size: 15px; padding: 15px 34px; }
+
+/* Variants */
+.btn--gold {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn--gold:hover {
+  background: var(--gold-dark);
+  box-shadow: 0 4px 18px rgba(240,165,0,.38);
+}
+
+.btn--navy {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn--navy:hover { background: var(--navy-dark); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,.38);
+}
+.btn--outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
